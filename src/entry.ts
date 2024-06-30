@@ -22,7 +22,7 @@ const startScene = async () => {
   camera.attachControl(canvas, true);
   new HemisphericLight("light1", new Vector3(0,0,1), scene);
   let sphere = MeshBuilder.CreateSphere("sphere", {segments:32, diameter:2}, scene);
-  let customMaterial = new CustomMaterial("custom", scene);
+  let customMaterial = new CustomMaterial("custom", "custom", scene);
   sphere.material = customMaterial;
   engine.runRenderLoop(() => {
     scene.render();

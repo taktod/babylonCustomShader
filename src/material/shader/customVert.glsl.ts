@@ -1,7 +1,10 @@
 import { ShaderStore } from "@babylonjs/core";
 
+import "./shaderInclude/customVertexDeclaration.glsl";
+import "./shaderInclude/customUboDeclaration.glsl";
+
 ShaderStore.ShadersStore["customVertexShader"] = `
-#include<__decl__defaultVertex>
+#include<__decl__customVertex>
 #define CUSTOM_VERTEX_BEGIN
 attribute vec3 position;
 #ifdef NORMAL

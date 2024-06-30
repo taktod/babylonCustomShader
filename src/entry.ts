@@ -1,4 +1,5 @@
 import { ArcRotateCamera, Color3, Color4, Engine, HemisphericLight, MeshBuilder, Scene, Vector3 } from "@babylonjs/core";
+import { CustomMaterial } from "./material/customMaterial";
 
 let canvas = document.querySelector("#renderCanvas") as HTMLCanvasElement;
 
@@ -21,7 +22,8 @@ const startScene = async () => {
   camera.attachControl(canvas, true);
   new HemisphericLight("light1", new Vector3(0,0,1), scene);
   let sphere = MeshBuilder.CreateSphere("sphere", {segments:32, diameter:2}, scene);
-
+  let customMaterial = new CustomMaterial("custom", scene);
+  sphere.material = customMaterial;
   engine.runRenderLoop(() => {
     scene.render();
   });
